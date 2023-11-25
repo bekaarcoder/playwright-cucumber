@@ -23,4 +23,5 @@ Then('Cart badge should get updated', async function () {
         .locator('#mat-badge-content-0')
         .textContent();
     expect(Number(count)).toBeGreaterThan(100);
+    pageFixture.logger.info(`Actual count is ${count}`);
 });

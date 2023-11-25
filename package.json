@@ -4,7 +4,9 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "cucumber-js test"
+        "test": "cross-env ENV=prod cucumber-js test || true",
+        "posttest": "npx ts-node src/helper/report.ts",
+        "test:failed": "cucumber-js -p rerun @rerun.txt"
     },
     "keywords": [],
     "author": "",
@@ -13,6 +15,13 @@
         "@cucumber/cucumber": "^10.0.1",
         "@playwright/test": "^1.39.0",
         "@types/node": "^20.9.0",
+        "cross-env": "^7.0.3",
+        "dotenv": "^16.3.1",
+        "multiple-cucumber-html-reporter": "^3.5.0",
         "ts-node": "^10.9.1"
+    },
+    "dependencies": {
+        "fs-extra": "^11.1.1",
+        "winston": "^3.11.0"
     }
 }
